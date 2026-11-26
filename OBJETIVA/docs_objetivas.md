@@ -17,7 +17,7 @@
 
 ## 1. HISTÓRICO COMPLETO DE PROMPTS ENVIADOS À IA
 
-**Prompt 1** (Gemini): [PREENCHER — colar literalmente o prompt enviado ao Gemini junto com a imagem/foto da prova pedindo a transcrição em texto]
+**Prompt 1** (Gemini):FOTO 1 E 2 das questoes. transcreva as 5 questoes e as que estao marcadas coloque na frente: certa
 
 **Prompt 2** (Claude, mensagem ditada, literal):
 
