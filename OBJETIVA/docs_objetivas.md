@@ -60,4 +60,6 @@ Não se aplica: não houve geração de código nem compilação nesta etapa.
 Como você validou que a solução gerada atende com rigor técnico aos requisitos do enunciado?
 
 ---
-As respostas foram marcadas à mão pelo estudante na prova. A IA apenas transcreveu o texto (Gemini) e transformou as marcações "certa" em checkboxes (Claude). [PREENCHER: confirmar que você conferiu o arquivo final contra a prova.]
+As respostas foram marcadas à mão pelo estudante na prova. A IA apenas transcreveu o texto (Gemini) e transformou as marcações "certa" em checkboxes (Claude). 
+
+selthon leal
