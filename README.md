@@ -1,3 +1,84 @@
+# Avaliação Teórico-Prática — Frameworks Front-End (IFMS, Campus Três Lagoas)
+
+**Estudante:** Selthon Leal | **R.A.:** 046787
+
+Projeto Next.js (App Router, JavaScript) com as 5 questões práticas, cada uma em uma rota dentro de `app/`.
+
+## Requisitos
+- Node.js (versão LTS) e npm.
+- Desenvolvido com Next.js 16.4.6.
+
+## Como executar
+```bash
+npm install
+npm run dev
+```
+Abrir **`http://localhost:3000`** no navegador (de preferência por `localhost`, e não pelo IP da rede).
+
+**Configuração necessária:** o arquivo `next.config.mjs` está com `cacheComponents: false`. Com o Cache Components ligado, as rotas `/cursos/[id]` e `/dashboard` apresentam erro. Ao iniciar o servidor, o log **não** deve mostrar `Cache Components enabled`.
+
+Avisos do terminal sem relação com o projeto: `'wmic' não é reconhecido` (Windows) e `Blocked cross-origin request` (aparece só ao abrir pelo IP da rede).
+
+## Rotas e como verificar cada uma
+
+### Questão 1 — `/cursos/1` (também `/cursos/2`, `/cursos/3`)
+Arquivos: `app/cursos/layout.js`, `app/cursos/Sidebar.js`, `app/cursos/dados.js`, `app/cursos/[id]/page.js`
+
+| O que verificar | Como | Esperado |
+|---|---|---|
+| Página dinâmica | Abrir `/cursos/1`, `/2`, `/3` | Título, carga horária, ementa e pré-requisitos |
+| `notFound()` | Abrir `/cursos/99` | Página 404 |
+| Estado do layout | Clicar em "Recolher" e depois em outro curso | A barra continua recolhida |
+| Navegação sem recarga | F12 > Network ao clicar nos links | Sem recarga do documento HTML inteiro |
+
+### Questão 2 — `/projetos`
+Arquivo: `app/projetos/page.js`
+
+| O que verificar | Como | Esperado |
+|---|---|---|
+| Validação | Digitar de 1 a 4 letras no nome | Borda vermelha e mensagem de erro; botão desabilitado |
+| ARIA | F12 > Elements, campo nome | `aria-invalid="true"` e `aria-describedby="erro-nome"` |
+| Cadastro e filtros | Cadastrar projetos; usar busca e filtro de área | A lista é cadastrada e filtrada |
+| Persistência | F5 | Projetos continuam (Application > Local Storage) |
+
+### Questão 3 — `/dashboard`
+Arquivos: `app/dashboard/page.js`, `loading.js`, `dados.js`, `BlocoEvasao.js`, `SkeletonEvasao.js`
+
+| O que verificar | Como | Esperado |
+|---|---|---|
+| `loading.js` | Abrir a rota | "Carregando dashboard..." por cerca de 0,5 s |
+| Bloco A / Streaming | Esperar | Métricas aparecem; o Bloco B mostra o esqueleto e, após cerca de 3 s, o relatório, sem recarregar a página |
+
+### Questão 4 — `/ouvidoria`
+Arquivos: `app/ouvidoria/page.js`, `actions.js`, `FormOuvidoria.js`, `repositorio.js`
+
+| O que verificar | Como | Esperado |
+|---|---|---|
+| Validação no servidor | Mensagem com menos de 10 caracteres | Erro vindo do servidor; nada entra no mural |
+| Envio válido | Preencher e enviar | Botão desabilitado com "Registrando manifestação..." por cerca de 1 s; a manifestação aparece no mural |
+| Sem recarga | F12 > Network durante o envio | Sem navegação de página inteira |
+
+O mural zera quando o servidor reinicia (repositório em memória).
+
+### Questão 5 — `/portal`
+Arquivos: `app/portal/page.js`, `app/providers.js`, `app/layout.js`, `app/components/BarraAcessibilidade.js`, `app/services/comunicados.js`
+
+| O que verificar | Como | Esperado |
+|---|---|---|
+| Layout | Abrir a rota | Barra de acessibilidade no topo e mural abaixo |
+| Contexto | Clicar nos dois botões | Alto contraste e fonte ampliada funcionam |
+| Barreira `server-only` | Criar temporariamente um Client Component (`"use client"`) que importe `app/services/comunicados.js` e rodar `npm run build` | O build falha com erro do `server-only`. Apagar o teste depois |
+
+## Documentação de uso de IA
+Pasta `documentacao/`:
+- `ficha-questao-1.md` a `ficha-questao-5.md`: Relatório de Transparência e Auditoria de IA Generativa de cada questão prática.
+- Demais arquivos: resumo das diretrizes, questões objetivas (Parte I) e o relatório da Parte I.
+
+Na raiz do projeto: `PROMPT-INICIAL-E-TESTE-DO-MODELO.md` (prompt inicial enviado à IA e teste do modelo do relatório).
+
+
+
+
 # Prompt inicial enviado à IA e teste do modelo de documentação
 
 **Estudante:** Selthon Leal | **R.A.:** 046787
